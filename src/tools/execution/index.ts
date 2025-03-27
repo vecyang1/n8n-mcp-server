@@ -8,6 +8,7 @@ import { ToolDefinition } from '../../types/index.js';
 import { getListExecutionsToolDefinition } from './list.js';
 import { getGetExecutionToolDefinition } from './get.js';
 import { getDeleteExecutionToolDefinition } from './delete.js';
+import { getRunWebhookToolDefinition } from './run.js';
 
 /**
  * Set up execution management tools
@@ -18,7 +19,8 @@ export async function setupExecutionTools(): Promise<ToolDefinition[]> {
   return [
     getListExecutionsToolDefinition(),
     getGetExecutionToolDefinition(),
-    getDeleteExecutionToolDefinition()
+    getDeleteExecutionToolDefinition(),
+    getRunWebhookToolDefinition()
   ];
 }
 
@@ -26,3 +28,4 @@ export async function setupExecutionTools(): Promise<ToolDefinition[]> {
 export { ListExecutionsHandler } from './list.js';
 export { GetExecutionHandler } from './get.js';
 export { DeleteExecutionHandler } from './delete.js';
+export { RunWebhookHandler } from './run.js';

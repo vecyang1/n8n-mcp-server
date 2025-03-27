@@ -55,6 +55,8 @@ Configure the following environment variables:
 |----------|-------------|---------|
 | `N8N_API_URL` | URL of the n8n API | `http://localhost:5678/api/v1` |
 | `N8N_API_KEY` | API key for authenticating with n8n | `n8n_api_...` |
+| `N8N_WEBHOOK_USERNAME` | Username for webhook authentication | `username` |
+| `N8N_WEBHOOK_PASSWORD` | Password for webhook authentication | `password` |
 | `DEBUG` | Enable debug logging (optional) | `true` or `false` |
 
 ### Generating an n8n API Key
@@ -100,6 +102,26 @@ install_local_mcp_server path/to/n8n-mcp-server
 
 The server provides the following tools:
 
+### Using Webhooks
+
+This MCP server supports executing workflows through n8n webhooks. To use this functionality:
+
+1. Create a webhook-triggered workflow in n8n.
+2. Set up Basic Authentication on your webhook node.
+3. Use the `run_webhook` tool to trigger the workflow, passing just the workflow name.
+
+Example:
+```javascript
+const result = await useRunWebhook({
+  workflowName: "hello-world", // Will call <n8n-url>/webhook/hello-world
+  data: {
+    prompt: "Hello from AI assistant!"
+  }
+});
+```
+
+The webhook authentication is handled automatically using the `N8N_WEBHOOK_USERNAME` and `N8N_WEBHOOK_PASSWORD` environment variables.
+
 ### Workflow Management
 
 - `workflow_list`: List all workflows
@@ -112,7 +134,8 @@ The server provides the following tools:
 
 ### Execution Management
 
-- `execution_run`: Execute a workflow
+- `execution_run`: Execute a workflow via the API
+- `run_webhook`: Execute a workflow via a webhook
 - `execution_get`: Get details of a specific execution
 - `execution_list`: List executions for a workflow
 - `execution_stop`: Stop a running execution

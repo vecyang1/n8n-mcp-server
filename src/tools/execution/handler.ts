@@ -11,7 +11,8 @@ import { N8nApiError, getErrorMessage } from '../../errors/index.js';
 import { 
   ListExecutionsHandler, 
   GetExecutionHandler,
-  DeleteExecutionHandler
+  DeleteExecutionHandler,
+  RunWebhookHandler
 } from './index.js';
 
 /**
@@ -36,6 +37,9 @@ export default async function executionHandler(
         
       case 'delete_execution':
         return await new DeleteExecutionHandler().execute(args);
+        
+      case 'run_webhook':
+        return await new RunWebhookHandler().execute(args);
         
       default:
         throw new McpError(
