@@ -110,7 +110,8 @@ function setupToolCallRequestHandler(server: Server): void {
       const {
         ListExecutionsHandler,
         GetExecutionHandler,
-        DeleteExecutionHandler
+        DeleteExecutionHandler,
+        RunWebhookHandler
       } = await import('../tools/execution/index.js');
       
       // Route the tool call to the appropriate handler
@@ -143,6 +144,9 @@ function setupToolCallRequestHandler(server: Server): void {
         result = await handler.execute(args);
       } else if (toolName === 'delete_execution') {
         const handler = new DeleteExecutionHandler();
+        result = await handler.execute(args);
+      } else if (toolName === 'run_webhook') {
+        const handler = new RunWebhookHandler();
         result = await handler.execute(args);
       } else {
         throw new Error(`Unknown tool: ${toolName}`);

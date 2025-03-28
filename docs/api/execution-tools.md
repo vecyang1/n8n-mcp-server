@@ -8,6 +8,73 @@ Execution tools allow AI assistants to execute n8n workflows and manage executio
 
 ## Available Tools
 
+### run_webhook
+
+Executes a workflow via webhook with optional input data.
+
+**Input Schema:**
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "workflowName": {
+      "type": "string",
+      "description": "Name of the workflow to execute (e.g., \"hello-world\")"
+    },
+    "data": {
+      "type": "object",
+      "description": "Input data to pass to the webhook"
+    },
+    "headers": {
+      "type": "object",
+      "description": "Additional headers to send with the request"
+    }
+  },
+  "required": ["workflowName"]
+}
+```
+
+**Example Usage:**
+
+```javascript
+// Execute webhook with data
+const webhookResult = await useRunWebhook({
+  workflowName: "hello-world",
+  data: {
+    prompt: "Good morning!"
+  }
+});
+
+// Execute webhook with additional headers
+const webhookWithHeaders = await useRunWebhook({
+  workflowName: "hello-world",
+  data: {
+    prompt: "Hello with custom header"
+  },
+  headers: {
+    "X-Custom-Header": "CustomValue"
+  }
+});
+```
+
+**Response:**
+
+```javascript
+{
+  "status": 200,
+  "statusText": "OK",
+  "data": {
+    // Response data from the webhook
+  }
+}
+```
+
+**Note:** 
+- Authentication for the webhook is automatically handled using the environment variables `N8N_WEBHOOK_USERNAME` and `N8N_WEBHOOK_PASSWORD`.
+- The tool automatically prefixes the `workflowName` with `webhook/` to create the full webhook path. For example, if you provide `hello-world` as the workflow name, the tool will call `{baseUrl}/webhook/hello-world`.
+
+
 ### execution_run
 
 Executes a workflow with optional input data.
