@@ -53,9 +53,9 @@ Configure the following environment variables:
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `N8N_API_URL` | URL of the n8n API | `http://localhost:5678/api/v1` |
+| `N8N_API_URL` | Full URL of the n8n API, including `/api/v1` | `http://localhost:5678/api/v1` |
 | `N8N_API_KEY` | API key for authenticating with n8n | `n8n_api_...` |
-| `N8N_WEBHOOK_USERNAME` | Username for webhook authentication | `username` |
+| `N8N_WEBHOOK_USERNAME` | Username for webhook authentication (if using webhooks) | `username` |
 | `N8N_WEBHOOK_PASSWORD` | Password for webhook authentication | `password` |
 | `DEBUG` | Enable debug logging (optional) | `true` or `false` |
 
@@ -84,19 +84,47 @@ n8n-mcp-server
 
 ### Integrating with AI Assistants
 
-To use this MCP server with AI assistants, you need to register it with your AI assistant platform. The exact method depends on the platform you're using.
+After building the server (`npm run build`), you need to configure your AI assistant (like VS Code with the Claude extension or the Claude Desktop app) to run it. This typically involves editing a JSON configuration file.
 
-For example, with the MCP installer:
+**Example Configuration (e.g., in VS Code `settings.json` or Claude Desktop `claude_desktop_config.json`):**
 
-```bash
-npx @anaisbetts/mcp-installer
+```json
+{
+  "mcpServers": {
+    // Give your server a unique name
+    "n8n-local": {
+      // Use 'node' to execute the built JavaScript file
+      "command": "node",
+      // Provide the *absolute path* to the built index.js file
+      "args": [
+        "/path/to/your/cloned/n8n-mcp-server/build/index.js"
+        // On Windows, use double backslashes:
+        // "C:\\path\\to\\your\\cloned\\n8n-mcp-server\\build\\index.js"
+      ],
+      // Environment variables needed by the server
+      "env": {
+        "N8N_API_URL": "http://your-n8n-instance:5678/api/v1", // Replace with your n8n URL
+        "N8N_API_KEY": "YOUR_N8N_API_KEY", // Replace with your key
+        // Add webhook credentials only if you plan to use webhook tools
+        // "N8N_WEBHOOK_USERNAME": "your_webhook_user",
+        // "N8N_WEBHOOK_PASSWORD": "your_webhook_password"
+      },
+      // Ensure the server is enabled
+      "disabled": false,
+      // Default autoApprove settings
+      "autoApprove": []
+    }
+    // ... other servers might be configured here
+  }
+}
 ```
 
-Then register the server:
+**Key Points:**
 
-```
-install_local_mcp_server path/to/n8n-mcp-server
-```
+*   Replace `/path/to/your/cloned/n8n-mcp-server/` with the actual absolute path where you cloned and built the repository.
+*   Use the correct path separator for your operating system (forward slashes `/` for macOS/Linux, double backslashes `\\` for Windows).
+*   Ensure you provide the correct `N8N_API_URL` (including `/api/v1`) and `N8N_API_KEY`.
+*   The server needs to be built (`npm run build`) before the assistant can run the `build/index.js` file.
 
 ## Available Tools
 
