@@ -41,6 +41,22 @@ npm run build
 npm install -g .
 ```
 
+### Docker Installation
+
+You can also run the server using Docker:
+
+```bash
+# Pull the image
+docker pull leonardsellem/n8n-mcp-server
+
+# Run the container with your n8n API configuration
+docker run -e N8N_API_URL=http://your-n8n:5678/api/v1 \
+  -e N8N_API_KEY=your_n8n_api_key \
+  -e N8N_WEBHOOK_USERNAME=username \
+  -e N8N_WEBHOOK_PASSWORD=password \
+  leonardsellem/n8n-mcp-server
+```
+
 ## Configuration
 
 Create a `.env` file in the directory where you'll run the server, using `.env.example` as a template:
