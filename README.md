@@ -222,3 +222,18 @@ npm run lint
 ## License
 
 MIT
+
+## 🚀 Call for Co-Maintainers
+
+This project is actively used but maintained on a part-time basis. I'm not a seasoned engineer (not even an engineer at all!) — just someone passionate about building useful tools for AI × workflow automation. To help the project grow and stay healthy, I’m looking for a few **co-maintainers** who can contribute on the technical side.
+
+You’d be helping with:
+
+- Reviewing PRs and managing issues
+- Keeping dependencies and tooling (e.g., ESLint, TypeScript) up to date
+- Improving testing, docs, and CI setup
+- Shaping the roadmap based on community needs
+
+If you’re a regular user of this project — or just excited by the problem space — I’d love to collaborate.
+
+**Interested?** Open an issue titled “Co-maintainer Application” or reach out directly. Let’s move this forward together 🙌
