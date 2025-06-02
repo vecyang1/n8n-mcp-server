@@ -6,6 +6,8 @@
  */
 
 import dotenv from 'dotenv';
+import findConfig from 'find-config';
+import path from 'path';
 import { McpError } from '@modelcontextprotocol/sdk/types.js';
 import { ErrorCode } from '../errors/error-codes.js';
 
@@ -31,7 +33,25 @@ export interface EnvConfig {
  * Load environment variables from .env file if present
  */
 export function loadEnvironmentVariables(): void {
-  dotenv.config();
+  const {
+    N8N_API_URL,
+    N8N_API_KEY,
+    N8N_WEBHOOK_USERNAME,
+    N8N_WEBHOOK_PASSWORD
+  } = process.env;
+
+  if (
+    !N8N_API_URL &&
+    !N8N_API_KEY &&
+    !N8N_WEBHOOK_USERNAME &&
+    !N8N_WEBHOOK_PASSWORD
+  ) {
+    const projectRoot = findConfig('package.json');
+    if (projectRoot) {
+      const envPath = path.resolve(path.dirname(projectRoot), '.env');
+      dotenv.config({ path: envPath });
+    }
+  }
 }
 
 /**
