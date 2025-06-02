@@ -4,12 +4,7 @@ A Model Context Protocol (MCP) server that allows AI assistants to interact with
 
 ## Overview
 
-This MCP server provides tools and resources for AI assistants to manage n8n workflows and executions. It allows assistants to:
-
-- List, create, update, and delete workflows
-- Activate and deactivate workflows
-- Execute workflows and monitor their status
-- Access workflow information and execution statistics
+This project provides a Model Context Protocol (MCP) server that empowers AI assistants to seamlessly interact with n8n, a popular workflow automation tool. It acts as a bridge, enabling AI assistants to programmatically manage and control n8n workflows and executions using natural language commands.
 
 ## Installation
 
@@ -193,6 +188,19 @@ The server provides the following resources:
 - `n8n://executions/{workflowId}`: List of executions for a workflow
 - `n8n://execution/{id}`: Details of a specific execution
 
+## Roadmap
+
+The n8n MCP Server is a community-driven project, and its future direction will be shaped by your feedback and contributions!
+
+Currently, our roadmap is flexible and under continuous development. We believe in evolving the server based on the needs and ideas of our users.
+
+We encourage you to get involved in shaping the future of this tool:
+
+-   **Suggest Features:** Have an idea for a new tool, resource, or improvement?
+-   **Discuss Priorities:** Want to weigh in on what we should focus on next?
+
+Please share your thoughts, feature requests, and ideas by opening an issue on our [GitHub Issues page](https://github.com/leonardsellem/n8n-mcp-server/issues). Let's build a powerful tool for AI assistants together!
+
 ## Development
 
 ### Building
@@ -219,21 +227,82 @@ npm test
 npm run lint
 ```
 
+## Contributing
+
+We welcome contributions from the community and are excited to see how you can help improve the n8n MCP Server! Whether you're fixing a bug, proposing a new feature, or improving documentation, your help is valued.
+
+### Reporting Bugs
+
+If you encounter a bug, please report it by opening an issue on our [GitHub Issues page](https://github.com/leonardsellem/n8n-mcp-server/issues).
+
+When submitting a bug report, please include the following:
+
+-   A clear and descriptive title.
+-   A detailed description of the problem, including steps to reproduce the bug.
+-   Information about your environment (e.g., Node.js version, n8n MCP Server version, operating system).
+-   Any relevant error messages or screenshots.
+
+### Suggesting Enhancements
+
+We're always looking for ways to make the server better. If you have an idea for an enhancement or a new feature, please open an issue on our [GitHub Issues page](https://github.com/leonardsellem/n8n-mcp-server/issues).
+
+Please provide:
+
+-   A clear and descriptive title for your suggestion.
+-   A detailed explanation of the proposed enhancement and why it would be beneficial.
+-   Any potential use cases or examples.
+
+### Submitting Pull Requests
+
+If you'd like to contribute code, please follow these steps:
+
+1.  **Fork the repository:** Create your own fork of the [n8n-mcp-server repository](https://github.com/leonardsellem/n8n-mcp-server).
+2.  **Create a branch:** Create a new branch in your fork for your changes (e.g., `git checkout -b feature/your-feature-name` or `bugfix/issue-number`).
+3.  **Make your changes:** Implement your feature or bug fix.
+    *   Ensure your code adheres to the existing coding style. (We use Prettier for formatting, which can be run with `npm run lint`).
+    *   Include tests for your changes if applicable. You can run tests using `npm test`.
+4.  **Commit your changes:** Write clear and concise commit messages.
+5.  **Push to your fork:** Push your changes to your forked repository.
+6.  **Open a Pull Request (PR):** Submit a PR to the `main` branch of the official `n8n-mcp-server` repository.
+    *   Provide a clear title and description for your PR, explaining the changes you've made and referencing any related issues.
+
+We'll review your PR as soon as possible and provide feedback. Thank you for your contribution!
+
 ## License
 
-MIT
+[MIT](LICENSE)
 
-## 🚀 Call for Co-Maintainers
+## 🚀 Join Our Team: Call for Co-Maintainers!
 
-This project is actively used but maintained on a part-time basis. I'm not a seasoned engineer (not even an engineer at all!) — just someone passionate about building useful tools for AI × workflow automation. To help the project grow and stay healthy, I’m looking for a few **co-maintainers** who can contribute on the technical side.
+This project is a vibrant, community-driven tool actively used by AI enthusiasts and developers. Currently, it's maintained on a part-time basis by a passionate individual who isn't a seasoned engineer but is dedicated to bridging AI with workflow automation. To help this project flourish, ensure its long-term health, and keep up with its growing user base, we're looking for enthusiastic **co-maintainers** to join the team!
 
-You’d be helping with:
+### Why Contribute?
 
-- Reviewing PRs and managing issues
-- Keeping dependencies and tooling (e.g., ESLint, TypeScript) up to date
-- Improving testing, docs, and CI setup
-- Shaping the roadmap based on community needs
+-   **Learn and Grow:** Sharpen your skills in areas like TypeScript, Node.js, API integration, and AI tool development.
+-   **Collaborate:** Work alongside other motivated developers and AI users.
+-   **Make an Impact:** Directly shape the future of this project and help build a valuable tool for the AI community.
+-   **Open Source:** Gain experience contributing to an open-source project.
 
-If you’re a regular user of this project — or just excited by the problem space — I’d love to collaborate.
+### How You Can Help
 
-**Interested?** Open an issue titled “Co-maintainer Application” or reach out directly. Let’s move this forward together 🙌
+We welcome contributions in many forms! Here are some areas where you could make a big difference:
+
+-   **Bug Fixing:** Help us identify and squash bugs to improve stability.
+-   **Feature Development:** Implement new tools and functionalities based on user needs and your ideas.
+-   **Documentation:** Improve our guides, examples, and API references to make the project more accessible.
+-   **Testing:** Enhance our test suite (unit, integration) to ensure code quality and reliability.
+-   **CI/CD:** Help streamline our development and deployment pipelines.
+-   **Code Reviews:** Provide feedback on pull requests and help maintain code standards.
+-   **Community Support:** Assist users with questions and help manage discussions.
+
+### Get Involved!
+
+If you're excited about the intersection of AI and workflow automation, and you're looking for a rewarding open-source opportunity, we'd love to hear from you!
+
+**Ready to contribute?**
+
+1.  Check out our [GitHub Issues page](https://github.com/leonardsellem/n8n-mcp-server/issues) to find existing tasks, suggest new ideas, or express your interest in becoming a co-maintainer.
+2.  You can open an issue titled "Co-maintainer Application" to formally apply, or simply start contributing to existing issues.
+3.  Alternatively, feel free to reach out to the existing maintainers if you have questions.
+
+Let’s build the future of AI-powered workflow automation together! 🙌
