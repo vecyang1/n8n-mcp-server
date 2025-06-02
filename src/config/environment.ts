@@ -6,10 +6,10 @@
  */
 
 import dotenv from 'dotenv';
+import findConfig from 'find-config';
+import path from 'path';
 import { McpError } from '@modelcontextprotocol/sdk/types.js';
 import { ErrorCode } from '../errors/error-codes.js';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
 
 // Environment variable names
 export const ENV_VARS = {
@@ -33,19 +33,23 @@ export interface EnvConfig {
  * Load environment variables from .env file if present
  */
 export function loadEnvironmentVariables(): void {
-  // Only load .env file if required environment variables are not already set
-  if (!process.env[ENV_VARS.N8N_API_URL] || !process.env[ENV_VARS.N8N_API_KEY]) {
-    // Try to load from the project root directory
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = dirname(__filename);
-    const rootDir = join(__dirname, '..', '..');
-    
-    // First try to load from project root
-    const result = dotenv.config({ path: join(rootDir, '.env') });
-    
-    // If that fails, try default location
-    if (result.error) {
-      dotenv.config();
+  const {
+    N8N_API_URL,
+    N8N_API_KEY,
+    N8N_WEBHOOK_USERNAME,
+    N8N_WEBHOOK_PASSWORD
+  } = process.env;
+
+  if (
+    !N8N_API_URL &&
+    !N8N_API_KEY &&
+    !N8N_WEBHOOK_USERNAME &&
+    !N8N_WEBHOOK_PASSWORD
+  ) {
+    const projectRoot = findConfig('package.json');
+    if (projectRoot) {
+      const envPath = path.resolve(path.dirname(projectRoot), '.env');
+      dotenv.config({ path: envPath });
     }
   }
 }
