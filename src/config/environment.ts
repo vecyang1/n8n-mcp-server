@@ -22,8 +22,8 @@ export const ENV_VARS = {
 export interface EnvConfig {
   n8nApiUrl: string;
   n8nApiKey: string;
-  n8nWebhookUsername: string;
-  n8nWebhookPassword: string;
+  n8nWebhookUsername?: string; // Made optional
+  n8nWebhookPassword?: string; // Made optional
   debug: boolean;
 }
 
@@ -47,7 +47,7 @@ export function getEnvConfig(): EnvConfig {
   const n8nWebhookPassword = process.env[ENV_VARS.N8N_WEBHOOK_PASSWORD];
   const debug = process.env[ENV_VARS.DEBUG]?.toLowerCase() === 'true';
 
-  // Validate required environment variables
+  // Validate required core environment variables
   if (!n8nApiUrl) {
     throw new McpError(
       ErrorCode.InitializationError,
@@ -62,19 +62,8 @@ export function getEnvConfig(): EnvConfig {
     );
   }
 
-  if (!n8nWebhookUsername) {
-    throw new McpError(
-      ErrorCode.InitializationError,
-      `Missing required environment variable: ${ENV_VARS.N8N_WEBHOOK_USERNAME}`
-    );
-  }
-
-  if (!n8nWebhookPassword) {
-    throw new McpError(
-      ErrorCode.InitializationError,
-      `Missing required environment variable: ${ENV_VARS.N8N_WEBHOOK_PASSWORD}`
-    );
-  }
+  // N8N_WEBHOOK_USERNAME and N8N_WEBHOOK_PASSWORD are now optional at startup.
+  // Tools requiring them should perform checks at the point of use.
 
   // Validate URL format
   try {
@@ -89,8 +78,8 @@ export function getEnvConfig(): EnvConfig {
   return {
     n8nApiUrl,
     n8nApiKey,
-    n8nWebhookUsername,
-    n8nWebhookPassword,
+    n8nWebhookUsername: n8nWebhookUsername || undefined, // Ensure undefined if empty
+    n8nWebhookPassword: n8nWebhookPassword || undefined, // Ensure undefined if empty
     debug,
   };
 }

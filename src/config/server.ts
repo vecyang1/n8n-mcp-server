@@ -96,6 +96,15 @@ function setupToolCallRequestHandler(server: Server): void {
     let result: ToolCallResult;
 
     try {
+      // Handle "prompts/list" as a special case, returning an empty success response
+      // This is to address client calls for a method not central to n8n-mcp-server's direct n8n integration.
+      if (toolName === 'prompts/list') {
+        return {
+          content: [{ type: 'text', text: 'Prompts list acknowledged.' }], // Or an empty array: content: []
+          isError: false,
+        };
+      }
+
       // Import handlers
       const { 
         ListWorkflowsHandler, 

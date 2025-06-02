@@ -67,6 +67,15 @@ export class RunWebhookHandler extends BaseExecutionToolHandler {
       
       // Get environment config for auth credentials
       const config = getEnvConfig();
+
+      // Check if webhook credentials are provided, as they are required for this tool
+      if (!config.n8nWebhookUsername || !config.n8nWebhookPassword) {
+        throw new N8nApiError(
+          'Webhook username and password are required for run_webhook tool. ' +
+          'Please set N8N_WEBHOOK_USERNAME and N8N_WEBHOOK_PASSWORD environment variables.',
+          400 // Bad Request, as it's a client-side configuration issue for this specific tool
+        );
+      }
       
       try {
         // Get the webhook URL with the proper prefix
