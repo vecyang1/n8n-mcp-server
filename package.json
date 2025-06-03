@@ -1,5 +1,5 @@
 {
-  "name": "n8n-mcp-server",
+  "name": "@leonardsellem/n8n-mcp-server",
   "version": "0.1.0",
   "description": "Model Context Protocol (MCP) server for n8n workflow automation",
   "main": "build/index.js",
@@ -24,8 +24,22 @@
     "automation",
     "ai"
   ],
-  "author": "",
+  "author": "Leonard Sellem (https://sellem.me)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardsellem/n8n-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leonardsellem/n8n-mcp-server/issues"
+  },
+  "homepage": "https://github.com/leonardsellem/n8n-mcp-server#readme",
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.7.0",
     "axios": "^1.6.2",
