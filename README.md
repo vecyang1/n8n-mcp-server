@@ -1,5 +1,7 @@
 # n8n MCP Server
 
+[![npm version](https://badge.fury.io/js/%40leonardsellem%2Fn8n-mcp-server.svg)](https://badge.fury.io/js/%40leonardsellem%2Fn8n-mcp-server)
+
 A Model Context Protocol (MCP) server that allows AI assistants to interact with n8n workflows through natural language.
 
 ## Overview
@@ -21,7 +23,7 @@ This MCP server provides tools and resources for AI assistants to manage n8n wor
 ### Install from npm
 
 ```bash
-npm install -g n8n-mcp-server
+npm install -g @leonardsellem/n8n-mcp-server
 ```
 
 ### Install from source
@@ -63,12 +65,12 @@ How you update the server depends on how you initially installed it.
 
 ### 1. Installed globally via npm
 
-If you installed the server using `npm install -g n8n-mcp-server`:
+If you installed the server using `npm install -g @leonardsellem/n8n-mcp-server`:
 
 1.  Open your terminal or command prompt.
 2.  Run the following command to get the latest version:
     ```bash
-    npm install -g n8n-mcp-server@latest
+    npm install -g @leonardsellem/n8n-mcp-server@latest
     ```
 3.  If the server is currently running (e.g., as a background process or service), you'll need to restart it for the changes to take effect.
 
