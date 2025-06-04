@@ -19,3 +19,7 @@ These rules apply to all automated contributors working on this project.
 
 ## Environment
 - Node.js 18 or later is required.
+
+## Continuous Improvement
+- After completing a task, review this guide and update it with any lessons
+  learned about the codebase, coding principles, or user preferences.
