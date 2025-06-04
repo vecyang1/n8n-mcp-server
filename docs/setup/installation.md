@@ -4,9 +4,9 @@ This guide covers the installation process for the n8n MCP Server.
 
 ## Prerequisites
 
-Before installing the n8n MCP Server, ensure you have:
+- Before installing the n8n MCP Server, ensure you have:
 
-- Node.js 18 or later installed
+- Node.js 20 or later installed
 - An n8n instance running and accessible via HTTP/HTTPS
 - API access enabled on your n8n instance
 - An API key with appropriate permissions (see [Configuration](./configuration.md))

@@ -128,7 +128,7 @@ When adding new functionality to the project:
 
 If you encounter issues running the tests:
 
-- Ensure you're using Node.js 18 or later
+- Ensure you're using Node.js 20 or later
 - Run `npm install` to ensure all dependencies are installed
 - Check for ESM compatibility issues if importing CommonJS modules
 - Use `console.log` or `console.error` for debugging (removed in production)
