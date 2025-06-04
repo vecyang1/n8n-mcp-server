@@ -30,13 +30,11 @@ import {
 import {
   getWorkflowResource,
   getWorkflowResourceTemplateMetadata,
-  getWorkflowResourceTemplateUri,
   extractWorkflowIdFromUri,
 } from './dynamic/workflow.js';
 import {
   getExecutionResource,
   getExecutionResourceTemplateMetadata,
-  getExecutionResourceTemplateUri,
   extractExecutionIdFromUri,
 } from './dynamic/execution.js';
 
@@ -60,9 +58,7 @@ export function setupResourceHandlers(server: Server, envConfig: EnvConfig): voi
  * @param server MCP server instance
  * @param envConfig Environment configuration
  */
-function setupStaticResources(server: Server, envConfig: EnvConfig): void {
-  const apiService = createApiService(envConfig);
-  
+function setupStaticResources(server: Server, _envConfig: EnvConfig): void {
   server.setRequestHandler(ListResourcesRequestSchema, async () => {
     // Return all available static resources
     return {

@@ -7,7 +7,7 @@
 import { ToolCallResult } from '../../types/index.js';
 import { McpError } from '@modelcontextprotocol/sdk/types.js';
 import { ErrorCode } from '../../errors/error-codes.js';
-import { N8nApiError, getErrorMessage } from '../../errors/index.js';
+import { getErrorMessage } from '../../errors/index.js';
 import { 
   ListExecutionsHandler, 
   GetExecutionHandler,

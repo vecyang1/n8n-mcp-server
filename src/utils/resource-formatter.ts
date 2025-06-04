@@ -6,7 +6,6 @@
  */
 
 import { Workflow, Execution } from '../types/index.js';
-import { formatExecutionSummary, summarizeExecutions } from './execution-formatter.js';
 
 /**
  * Format workflow summary for static resource listing

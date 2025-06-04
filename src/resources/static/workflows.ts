@@ -5,7 +5,6 @@
  */
 
 import { N8nApiService } from '../../api/n8n-client.js';
-import { EnvConfig } from '../../config/environment.js';
 import { formatWorkflowSummary, formatResourceUri } from '../../utils/resource-formatter.js';
 import { McpError, ErrorCode } from '../../errors/index.js';
 
