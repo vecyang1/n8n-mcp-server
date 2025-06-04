@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_FOR_COMMIT }} # Use a PAT to allow pushing commits and tags
+          token: ${{ github.token }} # Uses the default GITHUB_TOKEN
       - uses: actions/setup-node@v4
         with:
           node-version: '20' # Specify your desired Node.js version
