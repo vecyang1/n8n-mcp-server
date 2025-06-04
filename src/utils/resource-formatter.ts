@@ -48,7 +48,7 @@ export function formatWorkflowDetails(workflow: Workflow): Record<string, any> {
     staticData: workflow.staticData,
     settings: workflow.settings,
     tags: workflow.tags,
-    // Exclude potentially sensitive or unuseful information
+    // Exclude potentially sensitive or unnecessary information
     // like pinData or other internal fields
   };
 }
