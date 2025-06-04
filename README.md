@@ -12,7 +12,7 @@ This project provides a Model Context Protocol (MCP) server that empowers AI ass
 
 ### Prerequisites
 
-- Node.js 18 or later
+- Node.js 20 or later
 - n8n instance with API access enabled
 
 ### Install from npm

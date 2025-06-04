@@ -57,7 +57,7 @@ This guide addresses common issues you might encounter when setting up and using
 
 **Possible Solutions:**
 1. **Check Node.js Version:**
-   - Ensure you're using Node.js 18 or later
+   - Ensure you're using Node.js 20 or later
    - Check with `node --version`
 
 2. **Check Environment Variables:**
