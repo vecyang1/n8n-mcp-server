@@ -6,7 +6,6 @@
  * which allows AI assistants to interact with n8n workflows through the MCP protocol.
  */
 
-import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { loadEnvironmentVariables } from './config/environment.js';
 import { configureServer } from './config/server.js';

@@ -22,11 +22,6 @@ const runWebhookSchema = z.object({
 });
 
 /**
- * Type for webhook execution parameters
- */
-type RunWebhookParams = z.infer<typeof runWebhookSchema>;
-
-/**
  * Handler for the run_webhook tool
  */
 export class RunWebhookHandler extends BaseExecutionToolHandler {

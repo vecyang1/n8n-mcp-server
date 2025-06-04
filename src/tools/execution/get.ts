@@ -5,7 +5,7 @@
  */
 
 import { BaseExecutionToolHandler } from './base-handler.js';
-import { ToolCallResult, ToolDefinition, Execution } from '../../types/index.js';
+import { ToolCallResult, ToolDefinition } from '../../types/index.js';
 import { McpError } from '@modelcontextprotocol/sdk/types.js';
 import { ErrorCode } from '../../errors/error-codes.js';
 import { formatExecutionDetails } from '../../utils/execution-formatter.js';
