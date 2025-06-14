@@ -380,3 +380,6 @@ If you're excited about the intersection of AI and workflow automation, and you'
 3.  Alternatively, feel free to reach out to the existing maintainers if you have questions.
 
 Let’s build the future of AI-powered workflow automation together! 🙌
+
+**Thanks to the community for the support!**
+[![Star History Chart](https://api.star-history.com/svg?repos=leonardsellem/n8n-mcp-server&type=Date)](https://www.star-history.com/#leonardsellem/n8n-mcp-server&Date)
