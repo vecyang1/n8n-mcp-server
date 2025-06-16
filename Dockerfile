@@ -14,10 +14,10 @@ RUN npm install
 FROM node:20-slim
 WORKDIR /app
 
-# Install only production dependencies. This is faster and more secure.
-# We copy package.json and package-lock.json first to leverage Docker cache
+# Copy package.json and package-lock.json first to leverage Docker cache
 COPY package.json package-lock.json ./
-RUN npm install --omit=dev
+# Install ONLY production dependencies and DO NOT run any scripts (like build)
+RUN npm install --omit=dev --ignore-scripts
 
 # Copy the compiled application code from the builder stage
 COPY --from=builder /app/build ./build
