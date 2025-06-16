@@ -19,11 +19,13 @@ FROM node:20-slim
 WORKDIR /app
 
 # Copy package configuration and install only production dependencies
-COPY package.json package-lock.json ./
-RUN npm install --omit=dev
+
+# Copy production dependencies from builder
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
 
 # Copy the built application from the builder stage
-COPY --from=builder /app/build ./build
+COPY --from=builder /app/AGENTS.md ./
 
 # Set executable permissions for the binary
 RUN chmod +x build/index.js
